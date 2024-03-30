@@ -1,7 +1,6 @@
 from pathlib import Path
 import logging
 from colorlog import ColoredFormatter
-import datetime
 from logging.handlers import RotatingFileHandler
 
 def get_logger(name, fname, s_lvl, f_lvl):
@@ -53,4 +52,17 @@ log.info("this is info")
 log.warning("this is warning")
 log.error("this is error")
 log.critical("this is critical")
+'''
+
+''' import from other folder
+#!/usr/bin/env python3
+
+import os
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+import pyutils.logging as dlog
+import logging
 '''
