@@ -27,11 +27,11 @@ def get_logger(name, fname, s_lvl, f_lvl):
     #add handler at first time call
     if not logger.hasHandlers():
         logger.setLevel(logging.DEBUG)
-
-        s_handler = logging.StreamHandler()
-        s_handler.setFormatter(color_formatter)
-        s_handler.setLevel(s_lvl)
-        logger.addHandler(s_handler)
+        if s_lvl:
+            s_handler = logging.StreamHandler()
+            s_handler.setFormatter(color_formatter)
+            s_handler.setLevel(s_lvl)
+            logger.addHandler(s_handler)
         f_handler = RotatingFileHandler(Path(fname).with_suffix(".log"), maxBytes=10000000, backupCount=5)
         f_handler.setFormatter(formatter)
         f_handler.setLevel(f_lvl)
